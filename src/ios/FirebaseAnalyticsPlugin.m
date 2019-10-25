@@ -9,11 +9,14 @@
     NSLog(@"Starting Firebase Analytics plugin XAV");
 
     // Get the path for Google-Service-Info.plist
-    NSString * filePath =[[NSBundle mainBundle] pathForResource:@"GoogleService-Info" ofType: @"plist"];
+    //NSString * filePath =[[NSBundle mainBundle] pathForResource:@"GoogleService-Info" ofType: @"plist"];
 
     // Init FIRApp passing the file
-    FIROptions * options =[[FIROptions alloc] initWithContentsOfFile: filePath];
-    [FIRApp configureWithOptions: options];
+    //FIROptions * options =[[FIROptions alloc] initWithContentsOfFile: filePath];
+    //[FIRApp configureWithOptions: options];
+    
+    if(![FIRApp defaultApp]) {	    // Get the path for Google-Service-Info.plist
+        [FIRApp configure];    
 }
 
 - (void)logEvent:(CDVInvokedUrlCommand *)command {
